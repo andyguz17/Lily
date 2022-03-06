@@ -8,17 +8,21 @@ on:
     branches: [main]
 
 jobs:
-  run-tests:
+  build:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
         with:
-          build: npm run build
-          start: npm start
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
 
-      - name: Jest run
-        run: npm test
+      - run: yarn install
+      - run: yarn test
