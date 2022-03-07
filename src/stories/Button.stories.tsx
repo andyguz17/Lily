@@ -18,4 +18,5 @@ HelloWorld.args = {
 export const ClickMe = Template.bind({});
 ClickMe.args = {
   children: 'Click Me',
+  color: 'primary',
 };

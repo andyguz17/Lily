@@ -9,11 +9,7 @@ export interface IButton {
 
 export type IButtonColor = 'primary' | 'secondary';
 
-const Button: React.FC = ({
-  children,
-  color,
-  onClick,
-}: IButton): JSX.Element => {
+const Button = ({ children, color, onClick }: IButton): JSX.Element => {
   return (
     <button onClick={onClick} className={`btn btn-${color}`}>
       {children}
