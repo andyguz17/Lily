@@ -42,6 +42,6 @@ export default [
       },
     ],
     plugins: [dts()],
-    external: [/\.css$/],
+    external: [/\.scss$/],
   },
 ];
